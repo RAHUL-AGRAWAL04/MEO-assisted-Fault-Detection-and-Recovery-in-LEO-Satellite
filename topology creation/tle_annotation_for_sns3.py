@@ -15,7 +15,7 @@ def modify_tle_file(input_filename, output_filename):
         tle_line2 = lines[i+2].strip()  
 
         satellite_count += 1
-        modified_name = f"{tle_name} {satellite_count-1}"
+        modified_name = f"{tle_name} {satellite_count-1+636}" #636 is the total leo count. remove it if annotating LEO file
         modified_tle.append(modified_name)
         modified_tle.append(tle_line1)
         modified_tle.append(tle_line2)
@@ -26,7 +26,8 @@ def modify_tle_file(input_filename, output_filename):
 
     print(f"Modified TLE file saved to {output_filename}")
 
-input_tle_file = 'Input/data/ONEWEB-tle.txt'  
-output_tle_file = 'output/ONEWEB_annotted.txt' 
+# input_tle_file = 'Input/data/ONEWEB-tle.txt'  
+input_tle_file = 'Input/data/MEO-GPS.txt'  
+output_tle_file = 'output/MEO-annotted.txt' 
 
 modify_tle_file(input_tle_file, output_tle_file)
